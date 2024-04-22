@@ -1,0 +1,32 @@
+#dashboard-nav {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--bg-inactive);
+}
+
+#dashboard-panel {
+    overflow: auto;
+}
+
+a[role="dashboard-nav-button"] {
+    font-size: var(--font-size-large);
+}
+
+div[role="dashboard-panel-item"] {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-bottom: var(--padding-large);
+}
+
+a[role="dashboard-panel-title"] {
+    width: fit-content;
+    font-size: var(--font-size-huge);
+    border: var(--border-width) solid var(--border);
+    border-bottom: none !important;
+}
+
+div[role="dashboard-panel-content"] {
+    border: var(--border-width) solid var(--border);
+    padding: var(--padding-large);
+}

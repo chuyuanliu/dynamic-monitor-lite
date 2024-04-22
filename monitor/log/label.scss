@@ -1,0 +1,21 @@
+$labels:
+    "success" #ffffff #1c915a 10%,
+    "error" #ffffff #e83849 10%,
+    "warning" #000000 #ffea45 15%,
+    "info" #000000 #77b0f2 10%;
+
+@each $label, $fg, $bg, $hover in $labels {
+    .label[data-label="#{$label}"],
+    .selectize-control.multi .selectize-input [data-value="#{$label}"],
+    .selectize-control.multi .selectize-input [data-value="#{$label}"].active,
+    a[role="log-tool-button"][title="#{$label}"].log-notification-state.active {
+        color: $fg;
+        background-color: $bg;
+    }
+
+    .label[data-label="#{$label}"]:hover,
+    .selectize-control.multi .selectize-input [data-value="#{$label}"]:hover,
+    a[role="log-tool-button"][title="#{$label}"].log-notification-state.active:hover {
+        background-color: darken($bg, $hover);
+    }
+}

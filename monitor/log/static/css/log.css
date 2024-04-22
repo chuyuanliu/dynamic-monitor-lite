@@ -1,0 +1,135 @@
+#log-panel {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: var(--border-width) solid var(--border);
+}
+
+#log-title {
+    background-color: var(--theme-color-6);
+    width: 100%;
+    font-size: var(--font-size-normal);
+    border-bottom: var(--border-width) solid var(--border);
+}
+
+#log-jump-input {
+    font-size: var(--font-size-large);
+    border: var(--border-width) solid var(--border);
+    padding-left: var(--padding-large);
+    border-radius: var(--padding-normal);
+}
+
+#log-jump-input:focus {
+    outline: none;
+}
+
+#log-filter-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+div[role="log-toolbar"] {
+    background-color: var(--bg-inactive);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a[role="log-tool-button"] {
+    height: var(--font-size-icon);
+    padding: var(--padding-normal);
+}
+
+a[role="log-tool-button"]>* {
+    width: 100%;
+    height: 100%;
+}
+
+div[role="log-item-empty"] {
+    display: none;
+}
+
+div[role="log-item"] {
+    margin-bottom: var(--padding-large);
+}
+
+div[role="log-title"] {
+    display: flex;
+    flex-direction: row;
+}
+
+div[role="log-meta"] {
+    display: flex;
+}
+
+a[role="log-index"],
+a[role="log-timestamp"] {
+    display: inline-block;
+    align-self: flex-end;
+    white-space: nowrap;
+    width: fit-content;
+    border: var(--border-width) solid var(--border);
+    border-bottom: none !important;
+}
+
+div[role="log-label-panel"] {
+    flex: 1;
+}
+
+div[role="log-content"] {
+    border: var(--border-width) solid var(--border);
+}
+
+a[role="log-label"] {
+    float: right;
+    cursor: pointer;
+}
+
+a[role="log-label"]::after {
+    content: attr(data-label);
+}
+
+/* customize selectize style */
+
+.selectize-control.multi {
+    flex: 1;
+}
+
+.selectize-input,
+.selectize-input.dropdown-active {
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--padding-normal);
+}
+
+.label,
+.selectize-control.multi .selectize-input [data-value],
+.selectize-control.multi .selectize-input [data-value].active {
+    color: var(--fg-active);
+    background-color: var(--bg-active);
+    font-size: var(--font-size-normal);
+    border-radius: var(--padding-normal);
+    margin: var(--border-width);
+}
+
+.label:hover,
+.selectize-control.multi .selectize-input [data-value]:hover {
+    background-color: var(--bg-active-hover);
+}
+
+.selectize-control.multi .selectize-input [data-value],
+.selectize-control.multi .selectize-input [data-value].active {
+    border: none;
+    background-image: none;
+    background-repeat: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.selectize-control.plugin-remove_button .item .remove,
+.selectize-control.plugin-remove_button .item.active .remove {
+    border-color: var(--fg-active);
+}
+
+.selectize-dropdown .active:not(.selected) {
+    color: var(--fg);
+    background-color: var(--color-pantone-286c-20);
+}

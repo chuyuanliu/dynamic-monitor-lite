@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title|safe }}</title>
+    {{ head|safe|indent(4) }}
+</head>
+
+<body>
+    <nav id="dashboard-nav" class="grid-row">
+        {%- for (id, title) in nav %}
+        <a role="dashboard-nav-button" class="btn padding-large" href="#{{ id }}"
+            onclick="Dashboard.switchNav (event)">{{
+            title }}</a>
+        {%- endfor %}
+    </nav>
+    <div id="dashboard-panel" class="grid-row">
+        {%- for (id, title), contents in nav.items() %}
+        <div role="dashboard-panel-item" id="{{ id }}" class="highlight">
+            <a role="dashboard-panel-title" class="btn highlight padding-large" href="#{{ id }}"
+                onclick="Dashboard.switchNavByHref(event)">{{ title }}</a>
+            <div role="dashboard-panel-content" class="block highlight">
+                {%- for content in contents %}
+                {{ content|safe|indent(16) }}
+                {%- endfor %}
+            </div>
+        </div>
+        {%- endfor %}
+    </div>
+</body>
+
+</html>

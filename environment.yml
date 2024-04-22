@@ -1,0 +1,17 @@
+name: monitor-dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - gevent
+  - gevent-websocket
+  - flask
+  - flask-socketio
+  # for bokeh
+  - tornado
+  - bokeh
+  # for matplotlib
+  - matplotlib
+  - numpy

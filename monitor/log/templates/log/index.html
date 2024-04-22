@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title|safe }}</title>
+    {{ head|safe|indent(4) }}
+</head>
+
+<body>
+    <div role="log-toolbar" class="grid-row">
+        <a id="log-title" class="padding-normal monospace"></a>
+    </div>
+    <div role="log-toolbar" class="grid-row">
+        <a role="log-tool-button" class="btn icon" id="log-socket-switch" data-icon-on="{{ icons }}#cloud-arrow-down"
+            data-icon-off="{{ icons }}#cloud-slash" title="connect/disconnect"></a>
+        <a role="log-tool-button" class="btn icon" id="log-notification-permission" data-icon-on="{{ icons }}#bell"
+            data-icon-off="{{ icons }}#bell-slash" title="enable/disable notification"></a>
+        <a role="log-tool-button" class="btn icon log-notification-state" data-icon="{{ icons }}#check-circle"
+            title="success"></a>
+        <a role="log-tool-button" class="btn icon log-notification-state" data-icon="{{ icons }}#x-circle"
+            title="error"></a>
+        <a role="log-tool-button" class="btn icon log-notification-state" data-icon="{{ icons }}#warning-circle"
+            title="warning"></a>
+        <a role="log-tool-button" class="btn icon log-notification-state" data-icon="{{ icons }}#info" title="info"></a>
+        <a class="sep"></a>
+        <a role="log-tool-button" class="btn icon" onclick="Log.upload()" data-icon="{{ icons }}#file-arrow-up-duotone"
+            title="upload"></a>
+        <a role="log-tool-button" class="btn icon" onclick="Log.download()"
+            data-icon="{{ icons }}#file-arrow-down-duotone" title="download"></a>
+        <a class="sep"></a>
+        <a role="log-tool-button" class="btn icon" onclick="Log.toTop()" data-icon="{{ icons }}#arrow-line-up"
+            title="scroll to top"></a>
+        <a role="log-tool-button" class="btn icon" onclick="Log.toBottom()" data-icon="{{ icons }}#arrow-line-down"
+            title="scroll to bottom"></a>
+        <input role="log-tool-button" type="text" id="log-jump-input">
+        <a role="log-tool-button" class="btn icon" onclick="Log.jump()" data-icon="{{ icons }}#navigation-arrow"
+            title="jump to"></a>
+        <a class="sep"></a>
+    </div>
+    <div role="log-toolbar" class="grid-row" id="log-filter-bar">
+        <select id="log-filter-select" multiple></select>
+        <a role="log-tool-button" class="btn icon" onclick="Log.filterClear()" data-icon="{{ icons }}#trash"
+            title="clear"></a>
+        <a role="log-tool-button" class="btn icon log-filter-logic" data-icon="{{ icons }}#intersect-duotone"
+            title="and"></a>
+        <a role="log-tool-button" class="btn icon log-filter-logic" data-icon="{{ icons }}#unite-duotone"
+            title="or"></a>
+    </div>
+    <div id="log-panel" class="grid-row">
+    </div>
+    {%- if socket_url %}
+    <script>
+        (function (Log, $) {
+            Log.socketURL = "{{ socket_url }}";
+            Log.notificationIcons = JSON.parse('{{ notification_icons|tojson }}');
+            Log.notificationDefault = JSON.parse('{{ notification_states|tojson }}')
+        })(window.Log = window.Log || {});
+    </script>
+    {%- endif %}
+</body>
+
+</html>

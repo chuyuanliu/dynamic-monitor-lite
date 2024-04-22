@@ -1,0 +1,193 @@
+:root {
+    /* colors */
+    --color-pantone-286c-100: #0033A0;
+    --color-pantone-286c-80: #385CB4;
+    --color-pantone-286c-60: #6B84C5;
+    --color-pantone-286c-40: #9BAEDB;
+    --color-pantone-286c-20: #CDD6ED;
+
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+
+    --theme-color-0: #F8F8F8;
+    --theme-color-1: #F2F2F2;
+    --theme-color-2: #ECECEC;
+    --theme-color-3: #E6E6E6;
+    --theme-color-4: #E0E0E0;
+    --theme-color-5: #DADADA;
+    --theme-color-6: #D4D4D4;
+    --theme-color-7: #CECECE;
+    --theme-color-8: #C8C8C8;
+    --theme-color-9: #C2C2C2;
+
+    /* theme */
+    --border: var(--theme-color-9);
+    --border-highlight: var(--color-pantone-286c-100);
+
+    --bg: var(--theme-color-0);
+    --fg: var(--color-black);
+    --bg-content: var(--theme-color-1);
+
+    --bg-highlight-start: var(--color-pantone-286c-20);
+    --bg-highlight-final: var(--bg-content);
+
+    --bg-inactive: var(--theme-color-4);
+    --bg-inactive-hover: var(--theme-color-8);
+    --fg-inactive: var(--color-black);
+    --bg-active: var(--color-pantone-286c-80);
+    --bg-active-hover: var(--color-pantone-286c-100);
+    --fg-active: var(--color-white);
+
+    /* scale */
+    --border-width: 1px;
+    --font-size-icon: 24pt;
+    --font-size-huge: 16pt;
+    --font-size-large: 14pt;
+    --font-size-normal: 12pt;
+    --padding-huge: 6pt;
+    --padding-large: 5pt;
+    --padding-normal: 4pt;
+    --transition-time-slow: 0.9s;
+    --transition-time-normal: 0.6s;
+    --transition-time-fast: 0.3s;
+}
+
+* {
+    scroll-behavior: smooth !important;
+    font-size: var(--font-size-normal);
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: var(--bg);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+.monospace {
+    font-family: Courier, monospace;
+}
+
+.grid-col,
+.grid-row {
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.grid-row {
+    width: 100vw;
+}
+
+.grid-col {
+    height: 100vh;
+}
+
+.btn {
+    color: var(--fg-inactive);
+    background-color: var(--bg-inactive);
+    transition: var(--transition-time-fast);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--bg-inactive-hover);
+}
+
+.btn.active {
+    color: var(--fg-active);
+    background-color: var(--bg-active);
+}
+
+.btn.active:hover {
+    background-color: var(--bg-active-hover);
+}
+
+.btn.active.btn-active-bold {
+    font-weight: bold;
+}
+
+.block {
+    background-color: var(--bg-content);
+}
+
+.highlight:target,
+.highlight:target .highlight {
+    border-color: var(--border-highlight);
+}
+
+.btn.highlight:target,
+.highlight:target .btn.highlight {
+    color: var(--fg-active);
+    background-color: var(--bg-active);
+}
+
+.btn.highlight:target:hover,
+.highlight:target .btn.highlight:hover {
+    background-color: var(--bg-active-hover);
+}
+
+.block.highlight:target,
+.highlight:target .block.highlight {
+    background-color: var(--bg-highlight-final);
+    animation-duration: var(--transition-time-slow);
+    animation-name: block-highlight;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes block-highlight {
+    from {
+        background-color: var(--bg-highlight-start);
+    }
+
+    to {
+        background-color: var(--bg-highlight-final);
+    }
+}
+
+.btn.icon svg {
+    color: inherit;
+    fill: currentColor;
+}
+
+.padding-huge {
+    padding: var(--padding-huge) calc(var(--padding-huge) * 1.5);
+}
+
+.padding-large {
+    padding: var(--padding-large) calc(var(--padding-large) * 1.5);
+}
+
+.padding-normal {
+    padding: calc(var(--padding-normal) * 0.5) calc(var(--padding-normal) * 1.5);
+}
+
+.on {
+    display: none;
+}
+
+.active>.on {
+    display: block;
+}
+
+.off {
+    display: block;
+}
+
+.active>.off {
+    display: none;
+}
+
+.sep {
+    padding: 0 var(--padding-huge);
+}

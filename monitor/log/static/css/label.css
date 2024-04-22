@@ -1,0 +1,55 @@
+.label[data-label=success],
+.selectize-control.multi .selectize-input [data-value=success],
+.selectize-control.multi .selectize-input [data-value=success].active,
+a[role=log-tool-button][title=success].log-notification-state.active {
+  color: #ffffff;
+  background-color: #1c915a;
+}
+
+.label[data-label=success]:hover,
+.selectize-control.multi .selectize-input [data-value=success]:hover,
+a[role=log-tool-button][title=success].log-notification-state.active:hover {
+  background-color: #14663f;
+}
+
+.label[data-label=error],
+.selectize-control.multi .selectize-input [data-value=error],
+.selectize-control.multi .selectize-input [data-value=error].active,
+a[role=log-tool-button][title=error].log-notification-state.active {
+  color: #ffffff;
+  background-color: #e83849;
+}
+
+.label[data-label=error]:hover,
+.selectize-control.multi .selectize-input [data-value=error]:hover,
+a[role=log-tool-button][title=error].log-notification-state.active:hover {
+  background-color: #d4192b;
+}
+
+.label[data-label=warning],
+.selectize-control.multi .selectize-input [data-value=warning],
+.selectize-control.multi .selectize-input [data-value=warning].active,
+a[role=log-tool-button][title=warning].log-notification-state.active {
+  color: #000000;
+  background-color: #ffea45;
+}
+
+.label[data-label=warning]:hover,
+.selectize-control.multi .selectize-input [data-value=warning]:hover,
+a[role=log-tool-button][title=warning].log-notification-state.active:hover {
+  background-color: #f8dc00;
+}
+
+.label[data-label=info],
+.selectize-control.multi .selectize-input [data-value=info],
+.selectize-control.multi .selectize-input [data-value=info].active,
+a[role=log-tool-button][title=info].log-notification-state.active {
+  color: #000000;
+  background-color: #77b0f2;
+}
+
+.label[data-label=info]:hover,
+.selectize-control.multi .selectize-input [data-value=info]:hover,
+a[role=log-tool-button][title=info].log-notification-state.active:hover {
+  background-color: #4895ee;
+}

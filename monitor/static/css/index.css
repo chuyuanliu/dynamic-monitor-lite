@@ -1,0 +1,52 @@
+:root {
+    --index-tab-width: 300px;
+}
+
+#index-tab {
+    width: var(--index-tab-width);
+    background-color: var(--bg-inactive);
+    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    z-index: 1;
+}
+
+#index-tab-content {
+    width: calc(100vw - var(--index-tab-width));
+    overflow-y: hidden;
+    right: var(--index-tab-width);
+}
+
+#index-tab-external {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#index-tab ul {
+    padding: 0;
+    margin: 0;
+}
+
+#index-tab li {
+    list-style-type: none;
+    overflow-x: hidden;
+    display: flex;
+}
+
+a[role="index-tab-title"] {
+    font-size: var(--font-size-huge);
+    overflow-x: hidden;
+    flex: 1;
+    white-space: nowrap;
+}
+
+a[role="index-tab-button"] {
+    width: var(--font-size-huge);
+    padding: var(--padding-huge);
+}
+
+a[role="index-tab-button"]>* {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title|safe }}</title>
+    {{ head|safe|indent(4) }}
+</head>
+
+<body>
+    <nav id="index-tab" class="grid-col">
+        <ul>
+            {%- for title, page in tabs.items() %}
+            <li>
+                <a role="index-tab-title" class="btn btn-active-bold padding-huge" onclick="Index.switchTab(event)">
+                    {{ title }}</a>
+                <a role="index-tab-button" class="btn icon" href="{{ page.url }}" target="_blank"
+                    rel="noreferrer noopener" data-icon="{{ icons }}#arrow-square-out-bold"></a>
+            </li>
+            {%- endfor %}
+        </ul>
+        <nav id="index-tab-external">
+            {%- for url, icon in externals %}
+            <a role="index-tab-button" class="btn" href="{{ url }}" target="_blank" rel="noreferrer noopener">
+                <img src="{{ icon }}">
+            </a>
+            {%- endfor %}
+        </nav>
+    </nav>
+    <embed id="index-tab-content" class="grid-col">
+</body>
+
+</html>
